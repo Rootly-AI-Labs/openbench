@@ -24,9 +24,9 @@ There are 6 subtasks as of Tuesday, August 19, 2025, and the None option for the
 from inspect_ai import Task, task
 from inspect_ai.model import GenerateConfig
 
-from openbench.scorers.rootly_gmcq import rootly_gmcq_scorer
 from openbench.datasets.rootly_gmcq import load_rootly_gmcq_dataset
-from openbench.solvers.rootly_gmcq import rootly_gmcq_solver
+from openbench.scorers.mcq import simple_mcq_scorer
+from inspect_ai.solver import generate
 
 
 @task
@@ -34,7 +34,7 @@ def rootly_gmcq(subtask: str = None) -> Task:  # type: ignore
     dataset = load_rootly_gmcq_dataset(subtask)
     return Task(
         dataset=dataset,
-        solver=rootly_gmcq_solver(),
-        scorer=rootly_gmcq_scorer(),
+        solver=[generate()],
+        scorer=simple_mcq_scorer(),
         config=GenerateConfig(),
     )
