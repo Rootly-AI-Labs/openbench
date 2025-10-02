@@ -1014,6 +1014,15 @@ BENCHMARKS = {
         function_name="mmmu_pro_vision",
         is_alpha=False,
     ),
+    "pr_with_bugs": BenchmarkMetadata(
+        name="PR with Bugs",
+        description="Benchmark for evaluating model ability to identify bugs in pull requests",
+        category="core",
+        tags=["code-review", "bug-detection", "multiple-choice"],
+        module_path="openbench.evals.pr_with_bugs",
+        function_name="pr_with_bugs",
+        is_alpha=False,
+    ),
 }
 
 
